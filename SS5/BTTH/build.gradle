@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'com.edupath'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral() // Nơi tải thư viện về
+}
+
+ext {
+    junitVersion = '5.13.2'
+}
+
+sourceCompatibility = '21'
+targetCompatibility = '21'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8' // Đảm bảo code Java không bị lỗi font
+}
+
+dependencies {
+    compileOnly('jakarta.servlet:jakarta.servlet-api:6.1.0')
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+
+    // 1. Thư viện cốt lõi của Spring Web MVC
+    implementation("org.springframework:spring-webmvc:7.0.6")
+
+    // 2. Thư viện Thymeleaf để render giao diện HTML
+    implementation("org.thymeleaf:thymeleaf-spring6:3.1.3.RELEASE")
+
+    // 3. Thư viện QUAN TRỌNG: Thymeleaf Layout Dialect.
+    // Giúp kế thừa giao diện (Header, Footer chung) -> Phục vụ Chức năng 1
+    implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.3.0")
+}
+
+test {
+    useJUnitPlatform()
+}

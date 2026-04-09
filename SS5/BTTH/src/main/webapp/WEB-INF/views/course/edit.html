@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main-layout.html}">
+<head><title>Cập nhật khóa học</title></head>
+<body>
+<div layout:fragment="content">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow border-0">
+                <div class="card-header bg-warning text-dark py-3">
+                    <h4 class="mb-0 fw-bold"><i class="fa-solid fa-pen-to-square"></i> Cập nhật khóa học</h4>
+                </div>
+                <div class="card-body p-4">
+                    <form th:action="@{/course/update}" th:object="${course}" method="post">
+
+                        <input type="hidden" th:field="*{code}">
+
+                        <div class="alert alert-secondary">
+                            Đang chỉnh sửa khóa: <strong class="fs-5 text-primary" th:text="*{name}"></strong>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Học phí mới (VNĐ):</label>
+                            <div class="input-group">
+                                <span class="input-group-text">₫</span>
+                                <input type="number" class="form-control" th:field="*{price}" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Ngày khai giảng (Mới):</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-calendar-days"></i></span>
+                                <input type="text" class="form-control" th:field="*{startDate}" required placeholder="VD: 15/08/2026">
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a th:href="@{/course/list}" class="btn btn-light border">Hủy bỏ</a>
+                            <button type="submit" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i> Lưu cập nhật</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
