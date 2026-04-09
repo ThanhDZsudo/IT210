@@ -6,5 +6,9 @@
     <mapping directory="$PROJECT_DIR$/SS2/Session02" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/SS3/BTTH" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/SS3/kiemtra" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/SS4/Bai0" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/SS4/Bai1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/SS4/Bai2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/SS4/Bai3" vcs="Git" />
   </component>
 </project>
